@@ -1,0 +1,199 @@
+/* Componentes y utilidades */
+.text-muted{color:var(--muted)}
+.center{text-align:center}
+.flex{display:flex}
+.space-between{justify-content:space-between}
+.mt-2{margin-top:8px}
+.p-2{padding:8px}
+
+/* -------------------------------
+   Carrito estilo Apple
+--------------------------------*/
+
+.cart-link {
+  position: relative;
+  font-size: 1.1rem;
+}
+
+.cart-count {
+  background: #fff;
+  color: #000;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+
+.cart-hero {
+  text-align: center;
+  padding: 60px 0 30px;
+}
+
+.cart-sub {
+  opacity: .6;
+}
+
+.cart-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+  animation: fade-in .4s ease;
+}
+
+.cart-item-img {
+  width: 90px;
+  border-radius: 14px;
+}
+
+.cart-item-info h3 {
+  margin: 0 0 8px;
+}
+
+.qty-btn {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 26px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.qty-btn:hover {
+  background: #ddd;
+}
+
+.qty-value {
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.cart-remove {
+  font-size: 1.3rem;
+  margin-left: auto;
+  opacity: .5;
+  transition: .2s;
+}
+
+.cart-remove:hover {
+  opacity: 1;
+}
+
+.cart-total {
+  text-align: right;
+  font-size: 1.4rem;
+  margin-top: 30px;
+}
+
+.btn-checkout {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn-checkout:hover {
+  opacity: .7;
+}
+
+/* Fade animation */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.apple-btn {
+  background: #0071e3;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'SF Pro Display', sans-serif;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.apple-btn:hover {
+  background: #0a84ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 113, 227, 0.3);
+}
+
+.apple-btn:active {
+  transform: scale(0.96);
+  background: #0064c8;
+}
+
+.checkout-wrapper {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+}
+
+.checkout-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.checkout-form label {
+  display: block;
+  font-size: 15px;
+  margin: 18px 0 6px;
+  color: #444;
+}
+
+.input-apple {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  font-family: "SF Pro Display", sans-serif;
+  transition: all 0.25s ease;
+}
+
+.input-apple:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 0 4px rgba(0,113,227,0.2);
+  outline: none;
+}
+
+.input-apple.short {
+  width: 120px;
+}
+
+.pay-btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 16px;
+  font-size: 18px;
+}

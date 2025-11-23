@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block title %}Productos – Tienda Apple{% endblock
+%} {% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">Nuevos productos. Diseño que inspira.</h1>
+    <p class="hero-sub">
+      Explora nuestra selección de dispositivos y accesorios — diseño limpio,
+      rendimiento superior.
+    </p>
+  </div>
+</section>
+
+<section class="catalog">
+  <div class="catalog-grid">
+    {% for p in products %}
+    <article class="card" tabindex="0">
+      <a class="card-link" href="{{ url_for('product_detail', slug=p.slug) }}">
+        <div class="card-media">
+          <img src="{{ p.image_url }}" alt="{{ p.title }}" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">{{ p.title }}</h3>
+          <p class="card-price">${{ '%.2f'|format(p.price) }}</p>
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
