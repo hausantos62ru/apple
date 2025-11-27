@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block title %}Admin – Añadir producto{% endblock %}
+{% block content %}
+<h2>Añadir producto</h2>
+<form method="post" class="form-card">
+  <label>Título</label>
+  <input name="title" required />
+  <label>Slug (opcional)</label>
+  <input name="slug" />
+  <label>Precio</label>
+  <input name="price" type="number" step="0.01" required />
+  <label>Descripción</label>
+  <textarea name="description"></textarea>
+  <label>URL de imagen</label>
+  <input name="image_url" placeholder="https://..." />
+  <button class="btn" type="submit">Guardar</button>
+</form>
+{% endblock %}

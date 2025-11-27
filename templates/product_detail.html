@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block title %}{{ product.title }} – Tienda Apple{%
+endblock %} {% block content %}
+<div class="product-hero-wrap">
+  <div class="product-hero-media">
+    <img src="{{ product.image_url }}" alt="{{ product.title }}" />
+  </div>
+  <div class="product-hero-info">
+    <h1>{{ product.title }}</h1>
+    <p class="product-price">${{ '%.2f'|format(product.price) }}</p>
+    <p class="product-desc">{{ product.description }}</p>
+    <div class="product-actions">
+      <button class="btn">Comprar</button>
+      <a class="btn btn-ghost" href="{{ url_for('index') }}">Volver</a>
+      <form
+        action="{{ url_for('cart_add', slug=product.slug) }}"
+        method="POST"
+        class="product-actions"
+      >
+        <button type="submit" class="btn-apple primary">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden
+          >
+            <path d="M7 4h-2l-1 2" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+          Añadir al carrito
+        </button>
+
+        <a href="{{ url_for('cart_view') }}" class="btn-apple ghost small"
+          >Ver carrito</a
+        >
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

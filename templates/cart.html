@@ -1,0 +1,69 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="cart-container">
+  <h1>Tu carrito</h1>
+  <p>Revisa y gestiona tus productos.</p>
+
+  {% if items|length == 0 %}
+  <div class="cart-empty">
+    <h2>Tu carrito está vacío</h2>
+    <a href="{{ url_for('index') }}" class="apple-btn">Ver productos</a>
+  </div>
+  {% else %}
+
+  <!-- CALCULAR TOTAL -->
+  {% set total = 0 %} {% for item in items %} {% set total = total +
+  (item.product.price * item.quantity) %} {% endfor %} {% for item in items %}
+  <div class="cart-item">
+    <!-- Imagen -->
+    <img
+      src="{{ item.product.image_url }}"
+      class="cart-image"
+      alt="{{ item.product.title }}"
+    />
+
+    <!-- Info -->
+    <div class="cart-info">
+      <h3>{{ item.product.title }}</h3>
+      <p class="cart-price">${{ '%.2f'|format(item.product.price) }}</p>
+    </div>
+
+    <!-- Cantidad -->
+    <div class="cart-qty">
+      <a
+        class="qty-btn"
+        href="{{ url_for('cart_update', slug=item.product.slug, action='minus') }}"
+        >−</a
+      >
+
+      <span class="qty-value">{{ item.quantity }}</span>
+
+      <a
+        class="qty-btn"
+        href="{{ url_for('cart_update', slug=item.product.slug, action='plus') }}"
+        >+</a
+      >
+    </div>
+
+    <!-- Botón eliminar -->
+    <a
+      class="cart-remove"
+      href="{{ url_for('cart_remove', slug=item.product.slug) }}"
+    >
+      ✕
+    </a>
+  </div>
+  {% endfor %}
+
+  <!-- TOTAL CON ESTILO APPLE -->
+  <div class="summary-line total-line">
+    <div>Total</div>
+    <div>${{ '%.2f'|format(total) }}</div>
+  </div>
+
+  <a href="{{ url_for('checkout') }}" class="buy-now-btn">Comprar ahora</a>
+
+  {% endif %}
+</div>
+
+{% endblock %}

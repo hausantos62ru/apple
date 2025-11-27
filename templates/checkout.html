@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="checkout-container">
+  <h1>Finalizar compra</h1>
+
+  <h2>Método de pago</h2>
+
+  <form method="POST">
+    <label>Número de tarjeta</label>
+    <input
+      type="text"
+      name="card_number"
+      maxlength="16"
+      minlength="16"
+      pattern="\d{16}"
+      required
+    />
+
+    <label>Fecha de vencimiento</label>
+    <input type="month" name="exp_date" required />
+
+    <label>CVV</label>
+    <input
+      type="text"
+      name="cvv"
+      maxlength="3"
+      minlength="3"
+      pattern="\d{3}"
+      required
+    />
+
+    <h2>Dirección de envío</h2>
+
+    <label>Nombre completo</label>
+    <input type="text" name="fullname" required />
+
+    <label>Teléfono</label>
+    <input
+      type="text"
+      name="phone"
+      maxlength="10"
+      minlength="10"
+      pattern="\d{10}"
+      required
+    />
+
+    <label>Dirección</label>
+    <input type="text" name="address" required />
+
+    <!-- TOTAL APPLE STYLE -->
+    <div class="summary-line">
+      <div>Total</div>
+      <div>${{ '%.2f'|format(total) }}</div>
+    </div>
+
+    <button class="pay-btn" type="submit">Pagar ahora</button>
+  </form>
+</div>
+
+{% endblock %}

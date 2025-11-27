@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %}Perfil{% endblock %} {% block content
+%}
+<div class="profile-container">
+  <h1>Mi perfil</h1>
+
+  <form method="POST" class="profile-form">
+    <label>Correo</label>
+    <input type="email" value="{{ user.email }}" disabled />
+
+    <label>Nombre completo</label>
+    <input
+      type="text"
+      name="full_name"
+      value="{{ user.full_name or '' }}"
+      required
+    />
+
+    <label>Teléfono</label>
+    <input type="text" name="phone" value="{{ user.phone or '' }}" required />
+
+    <label>Dirección</label>
+    <input
+      type="text"
+      name="address"
+      value="{{ user.address or '' }}"
+      required
+    />
+
+    <button class="apple-btn">Guardar cambios</button>
+  </form>
+</div>
+{% endblock %}
